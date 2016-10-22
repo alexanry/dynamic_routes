@@ -1,0 +1,10 @@
+parameters:
+     anry.router.listener.class: AnryBundle\EventListener\RouterListener
+
+services:
+     anry.router.listener:
+        class: %anry.router.listener.class%
+        arguments:
+            container: "@service_container"
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, priority: 33 }
